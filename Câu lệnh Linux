@@ -27,3 +27,6 @@ du -sh /home
 
 # Xem các ổ đĩa được mount
 ls /mnt
+
+# Chỉnh sửa CRONTAB EDITOR
+crontab -e
