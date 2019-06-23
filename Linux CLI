@@ -1,0 +1,15 @@
+# Xem thông tin phiên bản OS
+uname -a
+
+# Xem ổ đĩa DISH FILE or FREE, -ah: all human
+df -ah
+
+# Xem dung lượng thư mục DISH USE
+du -sh /home
+
+# Xem thông tin một dịch vụ đang chạy
+service mysqld status
+servicectl mysqld status
+
+# Xem các dịch vụ mạng đang chạy tulpn: -TCP, -UDP, -LISTENING, -PROTOCOL, -CONNECTION TCP (sudo: superuser do)
+sudo netstat -tulpn
