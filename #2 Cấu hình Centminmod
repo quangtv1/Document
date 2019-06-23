@@ -87,9 +87,17 @@ WEBMIN_LOG = "/var/log/secure"
 TOOL kiểm tra blacklist: https://mxtoolbox.com/Public/Login.aspx#/
 
 
-MỞ PORT TRONG CSF
+CÀI ĐẶT NETDATA giám sát hệ thống
 ------------------------------------------------------
+bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+sudo systemctl start netdata
+sudo systemctl stop netdata
+sudo systemctl status netdata
+
+# MỞ CỔNG 19999 cho netdata
 nano /etc/csf/csf.conf
-thêm port trong các giao thức rồi khởi động lại
+thêm port 19999 TCP rồi khởi động lại
 csf -ra
+
+# Kiểm tra kết quả: http://srv-bomon.nuce.edu.vn:19999
 
