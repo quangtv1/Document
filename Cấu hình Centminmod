@@ -1,16 +1,17 @@
-XÓA MỘT TRANG WEB TRONG NUCE.EDU.VN
+XÓA MỘT SITE TRONG CENTMINMOD
 -------------------------------------------------------------
- pure-pw userdel nuceeduvn
- rm -rf /usr/local/nginx/conf/conf.d/nuce.edu.vn.conf
- rm -rf /usr/local/nginx/conf/conf.d/nuce.edu.vn.ssl.conf
- rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.crt
- rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.key
- rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.csr
- rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn
- rm -rf /home/nginx/domains/nuce.edu.vn
- rm -rf /root/.acme.sh/nuce.edu.vn
- rm -rf /root/.acme.sh/nuce.edu.vn_ecc
- rm -rf /usr/local/nginx/conf/pre-staticfiles-local-nuce.edu.vn.conf
+Commands to remove dr9.chinhban.com
+pure-pw userdel dr9
+ rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.conf
+ rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.ssl.conf
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.crt
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.key
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.csr
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com
+ rm -rf /home/nginx/domains/dr9.chinhban.com
+ rm -rf /root/.acme.sh/dr9.chinhban.com
+ rm -rf /root/.acme.sh/dr9.chinhban.com_ecc
+ rm -rf /usr/local/nginx/conf/pre-staticfiles-local-dr9.chinhban.com.conf
  service nginx restart
 
 
@@ -117,18 +118,5 @@ BIND_LOG = "/var/log/messages"
 SYSLOG_LOG = "/var/log/messages"
 WEBMIN_LOG = "/var/log/secure"
 
-XÓA MỘT SITE TRONG CENTMINMOD
-Commands to remove dr9.chinhban.com
-pure-pw userdel dr9
- rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.conf
- rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.ssl.conf
- rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.crt
- rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.key
- rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.csr
- rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com
- rm -rf /home/nginx/domains/dr9.chinhban.com
- rm -rf /root/.acme.sh/dr9.chinhban.com
- rm -rf /root/.acme.sh/dr9.chinhban.com_ecc
- rm -rf /usr/local/nginx/conf/pre-staticfiles-local-dr9.chinhban.com.conf
- service nginx restart
+
 
