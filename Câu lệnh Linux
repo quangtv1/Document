@@ -1,6 +1,10 @@
 # Document đầy đủ về từng câu lệnh
 man caulenh
 
+# list open files, List all network connections
+# Hướng dẫn sử dụng: https://catonmat.net/unix-utilities-lsof
+lsof -i 
+
 # Xem thông tin một dịch vụ đang chạy
 service mysqld status
 servicectl mysqld status
