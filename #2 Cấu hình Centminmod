@@ -47,8 +47,7 @@ CHO PHÉP VÀO TỪ MỌI IP
   #IP O GIAP BAT
   allow 27.73.110.179;
   deny all;
-  
-- File lưu USER và PASS web access: /usr/local/nginx/conf/htpassphpmyadmin;
+  - File lưu USER và PASS web access: /usr/local/nginx/conf/htpassphpmyadmin;
 
 
  CÀI CHƯƠNG TRÌNH DIỆT VIRUT MALDET:
@@ -58,7 +57,7 @@ CHO PHÉP VÀO TỪ MỌI IP
  Hướng dẫn: https://www.woktron.com/secure/knowledgebase/145/Installation-Linux-Malware-Detect-Maldet-On-CentOS.html
  https://centminmod.com/addons.html#maldet
  
-
+ 
 TẠO TÀI KHOẢN MYSQL & THAY PASS
 ------------------------------------------------------
 root\Nuce@123Nuce@123:
@@ -68,11 +67,10 @@ GRANT ALL PRIVILEGES ON * . * TO 'user1'@'localhost';
 FLUSH PRIVILEGES;
 
 
-TOOL kiểm tra blacklist: https://mxtoolbox.com/Public/Login.aspx#/
-
+KIỂM TRA LOG HỆ THỐNG
+------------------------------------------------------
 Nhật ký Block LDF:
 - /var/log/lfd.log.
-
 HTACCESS_LOG = "/var/log/httpd/error_log"
 MODSEC_LOG = "/var/log/httpd/error_log"
 SSHD_LOG = "/var/log/secure"
@@ -86,6 +84,12 @@ SUHOSIN_LOG = "/var/log/messages"
 BIND_LOG = "/var/log/messages"
 SYSLOG_LOG = "/var/log/messages"
 WEBMIN_LOG = "/var/log/secure"
+TOOL kiểm tra blacklist: https://mxtoolbox.com/Public/Login.aspx#/
 
 
+MỞ PORT TRONG CSF
+------------------------------------------------------
+nano /etc/csf/csf.conf
+thêm port trong các giao thức rồi khởi động lại
+csf -ra
 
