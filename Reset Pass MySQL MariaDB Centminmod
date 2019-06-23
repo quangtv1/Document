@@ -35,3 +35,8 @@ systemctl start mariadb
 nano /root/.my.cnf
 # đổi thành password='MyNewPass'
 mysqladmin ver
+
+
+# THAY ĐỔI MẬT KHẨU CỦA PHPMYADMIN htaccess
+https://srv-bomon.nuce.edu.vn/18933_mysqladmin2781/
+python /usr/local/nginx/conf/htpasswd.py -c -b /usr/local/nginx/conf/htpassphpmyadmin nuce 19662018
