@@ -1,0 +1,37 @@
+#RESET LẠI PASSWORD của thằng MYSQL trong cenminmod
+
+systemctl stop mariadb
+mysqld_safe --skip-grant-tables --skip-networking &
+mysql -u root
+
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
+# Sẽ bị lỗi 1290 => Kệ mẹ nó
+FLUSH PRIVILEGES;
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
+# Sẽ bị lỗi 1331 => Kệ mẹ nó
+
+select user, host, password, plugin, authentication_string from mysql.user where user='root';
+update mysql.user set password=password('MyNewPass') where user='root';
+# Hết lỗi thì tiếp tục
+FLUSH PRIVILEGES;
+
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
+# Sẽ bị lỗi 1331 => Kệ mẹ nó, thoát để nó mở Session mới
+quit
+
+mysql -u root -pMyNewPass
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
+# Giờ mới OK
+FLUSH PRIVILEGES;
+select user, host, password, plugin, authentication_string from mysql.user where user='root';
+quit
+
+# Kill những process đang chạy
+ps aufx | grep mysql | grep -v grep
+kill -9 2747 3105
+systemctl start mariadb
+
+# Thay đổi file lưu pass nữa là ok
+nano /root/.my.cnf
+# đổi thành password='MyNewPass'
+mysqladmin ver
