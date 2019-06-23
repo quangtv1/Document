@@ -1,3 +1,5 @@
+Cấu hình Drupal trong Nginx (Centmin)
+
 CẤU HÌNH FILE CONFIG /usr/local/nginx/conf/conf.d/
 ------------------------------------------------------
 # quang them loi khong hien thi anh
