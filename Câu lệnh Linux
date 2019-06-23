@@ -1,11 +1,5 @@
-# Xem thông tin phiên bản OS
-uname -a
-
-# Xem ổ đĩa DISH FILE or FREE, -ah: all human
-df -ah
-
-# Xem dung lượng thư mục DISH USE
-du -sh /home
+# Document đầy đủ về từng câu lệnh
+man caulenh
 
 # Xem thông tin một dịch vụ đang chạy
 service mysqld status
@@ -17,3 +11,15 @@ sudo netstat -tulpn
 # Xem CPU chạy PS: PROCESS STATUS,  -AUX: All processes for Users X, The X means 'any of the users'.
 ps aux | grep nginx
 top
+
+# Xem thông tin phiên bản OS
+uname -a
+
+# Xem ổ đĩa DISH FILE or FREE, -ah: all human
+df -ah
+
+# Xem dung lượng thư mục DISH USE
+du -sh /home
+
+# Xem các ổ đĩa được mount
+ls /mnt
