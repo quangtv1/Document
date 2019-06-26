@@ -33,6 +33,15 @@ find sites/default/files -type f -exec chmod 0644 {} \;
 there should be no "tmp" directory at drupal root , place tmp outside where hackers can not access with weburl
 
 
+PHÂN QUYỀN JOOMLA
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+chmod 707 images
+chmod 707 images/stories
+chown apache:apache cache
+
+
+
 TÌM MỘT FILE
 ------------------------------------------------------
 find . -type f -name '*.php'
