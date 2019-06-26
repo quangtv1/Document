@@ -1,6 +1,12 @@
 # THAY ĐỔI MẬT KHẨU CỦA PHPMYADMIN htaccess
-https://srv-bomon.nuce.edu.vn/15666_mysqladmin7825
+https://srv-bomon.nuce.edu.vn/15041_mysqladmin27819
 python /usr/local/nginx/conf/htpasswd.py -c -b /usr/local/nginx/conf/htpassphpmyadmin nuce 19662018
+
+https://srv-bomon.nuce.edu.vn/15041_mysqladmin27819
+phpmyadmin htaccess login details:
+Username: adminM1q9feWKu2s=
+Password: XTuA59MFpsuuEg7hhOZEVwToQ=
+Allowed IP address: 27.73.110.179
 
 
 CÀI PHP MYADMIN
