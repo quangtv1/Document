@@ -1,3 +1,38 @@
 # THAY ĐỔI MẬT KHẨU CỦA PHPMYADMIN htaccess
-https://srv-bomon.nuce.edu.vn/18933_mysqladmin2781/
+https://srv-bomon.nuce.edu.vn/15666_mysqladmin7825
 python /usr/local/nginx/conf/htpasswd.py -c -b /usr/local/nginx/conf/htpassphpmyadmin nuce 19662018
+
+
+CÀI PHP MYADMIN
+-------------------------------------------------------------
+- /root/tools/phpmyadmin_uninstall.sh
+- cd /usr/local/src/centminmod/addons/
+- chmod 0700 /usr/local/src/centminmod/addons/phpmyadmin.sh
+- ./phpmyadmin.sh install
+
+
+CHO PHÉP VÀO TỪ MỌI IP
+-------------------------------------------------------------
+- nano /usr/local/nginx/conf/phpmyadmin_https.conf
+- deny all; => allow all; 
+- Hoặc cho phép những IP tĩnh sau:
+
+  #IP TINH O DHXD
+  allow 117.1.16.201;
+  allow 117.1.16.202;
+  allow 117.1.16.203;
+  allow 117.1.16.204;
+  allow 117.1.16.205;
+  allow 117.1.16.206;
+  allow 117.4.240.19;
+  allow 27.72.100.108;
+  allow 118.70.118.138;
+  allow 118.70.116.23;
+  allow 123.16.13.116;
+  allow 117.6.85.13;
+  allow 117.6.132.144;
+  allow 117.6.87.43;
+  #IP O GIAP BAT
+  allow 27.73.110.179;
+  deny all;
+  - File lưu USER và PASS web access: /usr/local/nginx/conf/htpassphpmyadmin;
