@@ -52,8 +52,9 @@ CHO PHÉP VÀO TỪ MỌI IP
 
  CÀI CHƯƠNG TRÌNH DIỆT VIRUT MALDET:
  ------------------------------------------------------
- Cài đặt:
- cd /usr/local/src/centminmod/addons
+Cài đặt:
+cd /usr/local/src/centminmod/addons
+thêm email trong file maldet.sh
 ./maldet.sh
 
  Update CSDL: maldet -d
