@@ -52,6 +52,10 @@ CHO PHÉP VÀO TỪ MỌI IP
 
  CÀI CHƯƠNG TRÌNH DIỆT VIRUT MALDET:
  ------------------------------------------------------
+ Cài đặt:
+ cd /usr/local/src/centminmod/addons
+./maldet.sh
+
  Update CSDL: maldet -d
  Quét: maldet -a /home/nginx/domains/nuce.edu.vn 
  Hướng dẫn: https://www.woktron.com/secure/knowledgebase/145/Installation-Linux-Malware-Detect-Maldet-On-CentOS.html
