@@ -1,6 +1,6 @@
 * Giám sát hệ thống SRV real time chạy web (2-SRV)
-  - Trang chủ:  http://nuce.edu.vn:19999 
-  - Các trang của Khoa bộ môn:  http://srv-bomon.nuce.edu.vn:19999 
+  - Trang chủ:  [Link Text](http://nuce.edu.vn:19999)
+  - Các trang của Khoa bộ môn:  [Link Text](http://srv-bomon.nuce.edu.vn:19999)
 * Thông tin cấu hình chi tiết:  https://github.com/quangtv1/caulenhhaydung
 * Danh sách các Website đang chạy trên SRV centos:
   0. nuce.edu.vn
